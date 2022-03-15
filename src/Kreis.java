@@ -92,11 +92,6 @@ public class Kreis {
     }
 
     public boolean istGetroffen(double pHPosition, double pVPosition) {
-        if ((pHPosition <= this.hPosition() + this.zGroesse) & (pHPosition >= this.hPosition() - this.zGroesse) && (pVPosition <= this.vPosition() + this.zGroesse & pVPosition >= this.vPosition() - this.zGroesse)) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return (Math.pow(pHPosition - hPosition(),2) + Math.pow(pVPosition - vPosition(),2) <= Math.pow(zGroesse,2));
     }
 }

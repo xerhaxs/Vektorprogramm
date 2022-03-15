@@ -9,6 +9,7 @@ public class Grafik {
     Quadrat hatQuadrat;
     Quadrat hatQuadrat2;
     Kreis hatKreis;
+    Kreis hatKreis2;
 
     hatBildschirm = new Bildschirm();
     hatTastatur= new Tastatur();
@@ -16,6 +17,7 @@ public class Grafik {
     hatQuadrat = new Quadrat(100,100,50);
     hatQuadrat2 = new Quadrat(500,500,20);
     hatKreis = new Kreis(200, 200, 60);
+    hatKreis2 = new Kreis(600,600,30);
 
     do {
       if (hatMaus.istGedrueckt()) {
@@ -29,10 +31,15 @@ public class Grafik {
         } else {
           hatQuadrat2.demarkiere();
         }
-                if (hatKreis.istGetroffen(hatMaus.hPosition(), hatMaus.vPosition())) {
+        if (hatKreis.istGetroffen(hatMaus.hPosition(), hatMaus.vPosition())) {
           hatKreis.markiere();
         } else {
           hatKreis.demarkiere();
+        }
+        if (hatKreis2.istGetroffen(hatMaus.hPosition(), hatMaus.vPosition())) {
+          hatKreis2.markiere();
+        } else {
+          hatKreis2.demarkiere();
         }
       }
 
@@ -65,6 +72,16 @@ public class Grafik {
             case Zeichen.PFEILRECHTS: hatKreis.bewegeUm(5, 0); break;
             case Zeichen.PFEILOBEN: hatKreis.bewegeUm(0, -5); break;
             case Zeichen.PFEILUNTEN: hatKreis.bewegeUm(0, 5); break;
+          }
+        }
+        if (hatKreis2.istMarkiert()) {
+          switch (hatTastatur.zeichen()) {
+            case '+': hatKreis2.vergroessere(5); break;
+            case '-': hatKreis2.vergroessere(-5); break;
+            case Zeichen.PFEILLINKS: hatKreis2.bewegeUm(-5,0); break;
+            case Zeichen.PFEILRECHTS: hatKreis2.bewegeUm(5, 0); break;
+            case Zeichen.PFEILOBEN: hatKreis2.bewegeUm(0, -5); break;
+            case Zeichen.PFEILUNTEN: hatKreis2.bewegeUm(0, 5); break;
           }
         }
         hatTastatur.weiter();
