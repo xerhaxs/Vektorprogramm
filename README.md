@@ -1,2 +1,2 @@
 # Vektorprogramm
- Kleines Vektormalprogramm in Java
+ Kleines Vektormalprogramm in Java und erstellt mit SuM.
